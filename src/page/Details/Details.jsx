@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Header from '../../components/Header/Header';
 import { useLocation } from "react-router-dom";
+import TopBar from "../../components/TopBar/Navbar";
 
 const style = {
     position: 'absolute',
@@ -21,6 +22,7 @@ const Details = (props) => {
   console.log(state.state);
     return (
       <div>
+        <TopBar/>
         <Header/>
         <div>
             <p>Chi tiết</p>

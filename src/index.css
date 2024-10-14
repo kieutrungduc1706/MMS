@@ -1,21 +1,66 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  /* margin: 0; */
+  font-family: 'Poppins',sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -moz-user-select: none !important;
   -webkit-touch-callout: none!important;
-  -webkit-user-select: none!important;
+  /* -webkit-user-select: none!important;
   -khtml-user-select: none!important;
   -moz-user-select: none!important;
   -ms-user-select: none!important;
-    user-select: none!important;
+    user-select: none!important; */
     overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: url('./assets/bg99.jpg') no-repeat center center;
+    background-size: cover;
+    /* back */
+    /* background: rgba(0, 0, 0, 0.1); */
+
+    /* background-origin: border-box; */
 }
 
+@media (max-width: 767px) {
+  body {
+    /* background: url('./assets/bg11.jpg') no-repeat ; */
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  /* border-radius: 5px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c83b3b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

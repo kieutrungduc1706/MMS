@@ -1,0 +1,5 @@
+export * from "./Home/Home"
+export * from "./LoginForm/Login"
+export * from "./Profile/Profile"
+export * from "./Details/Details"
+export * from "./Contact/Contact"

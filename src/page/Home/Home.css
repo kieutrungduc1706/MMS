@@ -1,0 +1,7 @@
+.container {
+    align-items: center;
+    justify-self: center
+}
+.main-container{
+    z-index: -10;
+}
