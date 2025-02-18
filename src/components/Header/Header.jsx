@@ -86,7 +86,7 @@ const Header = ({ route, props, data, user }) => {
     const [dataInfoNumber, setDataInfoNumber] = useState([])
     const [dataGiaiMa, setDataGiaiMa] = useState([])
     const [dataTuTruong, setDataTuTruong] = useState([])
-    const [checked, setChecked] = useState(true)
+    // const [checked, setChecked] = useState(true)
     const [stateCheck, setStateCheck] = useState('')
     const [checkType, setCheckType] = useState(5)
     const [cccd, setCCCD] = useState('');
@@ -113,6 +113,7 @@ const Header = ({ route, props, data, user }) => {
     ]
 
     useEffect(() => {
+        console.log(user)
         if(data === undefined){
             navigate('/');
         }else{
@@ -635,7 +636,8 @@ const Header = ({ route, props, data, user }) => {
                 <div className="row">
                     <HeaderMenu onClick={() => FuncMenu(1)} id={1} name="Tra cứu bằng CCCD" />
                     {
-                        linkPDF !== '' && checkType == 5
+                        linkPDF !== '' && user == 2
+
                         ?
                         <div onClick={()=>handleDownloadPDF(linkPDF)}   style={{width: 15, cursor:'pointer'}}>
                             <img src={exportPDF} className="PDF" />
@@ -735,7 +737,7 @@ const Header = ({ route, props, data, user }) => {
                                     <div className="list-giaima"> 
                                     <h3 style={{color: dataSearch.cat_tinh_score < dataSearch.hung_tinh_score ? "red" : "green" }}> {dataSearch.number_state}</h3>
                                     <h3 style={{color:"#fff"}}> {dataSearch.result_conclusion}</h3>
-                                        {/* <InfoNumber key={'3131'} title="Số của bạn là: " value= />  */}
+                                    <h4 style={{color: '#fff'}}>Đây chỉ là thông tin khoa học ban đầu về năng lượng số, vận mệnh của anh chị do anh chị quyết định, nó phụ thuộc vào sự tu tập sẽ dẫn đến cải mệnh.  Bản luận giải trên chỉ là công cụ để anh chị kiểm nghiệm, có thể nó đã diễn ra rồi hay sắp diễn ra, nó không phải là yếu tố bất biến...</h4>
                                 </div>
                                     </>
                                 }

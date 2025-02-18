@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useHref, useLocation } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import { AuthContext } from "../../AuthContext";
 
 const logo = require('../../assets/logo.png')
 
 function TopBar({ data }) {
-  // console.log(data)
+  console.log("Check data Nabar--->",data)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { userData } = useContext(AuthContext);
   return (
+    <header style={{width:'100vw'}}>
     <nav>
-      <img src={logo} style={{padding: 5, width:60, height: 'auto'}}/>
+    <NavLink to="/Home">
+        <img src={logo} style={{padding: 5, width:60, height: 'auto'}}/>
+        </NavLink>
       <div className="menu" onClick={()=>setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
@@ -23,14 +28,18 @@ function TopBar({ data }) {
           <li>
             <div className="profile">
               <FaUser className="icon"/>
-              <NavLink to="/Profile">{data}</NavLink>
+              <NavLink to="/Profile">{userData?.user_fullname}</NavLink>
             </div>
+          </li>
+          <li>
+            <NavLink to="/UserManager">Quản lý người dùng</NavLink>
           </li>
           <li>
             <NavLink to="/">Đăng xuất</NavLink>
           </li>
       </ul>
     </nav>
+    </header>
   );
 }
 

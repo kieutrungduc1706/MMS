@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './Login.css'
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import listApi from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
+import { AuthContext } from "../../AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Login = () => {
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-
+    const { setUserData } = useContext(AuthContext);
     const [action, setAction] = useState('');
 
     const registerLink = () => {
@@ -42,7 +43,10 @@ const Login = () => {
                     console.log("check: ", response.session_id);
                     if (response.code == 200) {
                         console.log("login thành công")
-                        navigate('/Home' , {state: response});
+                        // console.log(response)
+                        setUserData(response);
+                        navigate('/Home');
+
                     } else {
                         alert(response.desc)
                     }
@@ -102,8 +106,8 @@ const Login = () => {
                     </div> */}
                     <button type="submit">Đăng nhập </button>
                     <div className="register-link">
-                        <p>Nếu bạn chưa có tài khoản? <a 
-                        onClick={registerLink}> Đăng ký</a></p>
+                        {/* <p>Nếu bạn chưa có tài khoản? <a 
+                        onClick={registerLink}> Đăng ký</a></p> */}
                     </div>
                 </form>
             </div>

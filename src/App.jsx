@@ -7,8 +7,7 @@ import Home from "./page/Home/Home";
 import Details from "./page/Details/Details";
 import Login from "./page/LoginForm/Login";
 import TopBar from "./components/TopBar/Navbar";
-import { Profile } from "./page";
-
+import { Profile, UserManager } from "./page";
 
 // import your route components too
 function App() {
@@ -21,6 +20,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/details"  element={<Details />} />
           <Route path="/Profile"  element={<Profile />} />
+          <Route path="/UserManager"  element={<UserManager />} />
         </Routes>
       </BrowserRouter>
     </>

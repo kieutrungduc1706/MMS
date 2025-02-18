@@ -16,7 +16,7 @@ const style = {
     p: 4,
 };
 
-const Details = (props) => {
+export const Details = (props) => {
   console.log(props)
     const state = useLocation();
   console.log(state.state);
